@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test:jasmine": "./node_modules/.bin/jasmine-node --growl tests/specs/jasmine/",
-    "test:mocha": "./node_modules/.bin/mocha --growl tests/specs/mocha/",
+    "test:mocha": "mocha \"tests/specs/mocha/*-test.js\" --growl --require babel-core/register --require babel-polyfill --recursive",
     "test": "echo \"@TODO: test\""
   },
   "repository": {
