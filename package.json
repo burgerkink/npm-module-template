@@ -5,7 +5,7 @@
   "description": "npm_module_description",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test:jasmine": "./node_modules/.bin/jasmine-node --growl tests/specs/jasmine/"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,18 @@
   "directories": {
     "doc": "docs",
     "test": "tests"
+  },
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "jsesc": "^2.5.0",
+    "md5-file": "^3.1.1",
+    "npm": "^6.4.1",
+    "validator": "^9.4.0"
+  },
+  "devDependencies": {
+    "bash-color": "0.0.4",
+    "eslint": "3.19.0",
+    "istanbul": "0.4.5",
+    "jasmine-node": "1.14.5"
   }
 }
