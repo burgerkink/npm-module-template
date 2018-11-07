@@ -1,2 +1,3 @@
-# npm-module-template
-{npm module template}
+# {npm module template}
+
+Describe your module here...
