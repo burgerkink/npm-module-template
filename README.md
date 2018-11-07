@@ -1,3 +1,5 @@
-# {npm module template}
+# {npm_module}
 
-Describe your module here...
+{npm_module_description}
+
+{date}
