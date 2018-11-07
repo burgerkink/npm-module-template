@@ -1,6 +1,7 @@
 {
   "name": "npm_module",
   "version": "0.0.1",
+  "private": true,
   "description": "npm_module_description",
   "main": "index.js",
   "scripts": {
@@ -8,10 +9,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/repository"
+    "url": "git+https://url.com/repository"
   },
   "author": "",
-  "license": "ISC",
+  "license": "UNLICENSED",
   "bugs": {
     "url": "https://url.com/bags"
   },
