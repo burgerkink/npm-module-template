@@ -9,9 +9,10 @@
     "test:jasmine": "npm run local_definitions; jasmine-node --growl tests/specs/jasmine/",
     "test:mocha": "npm run local_definitions; mocha \"tests/specs/mocha/*-mocha-test.js\" --growl --require babel-core/register --require babel-polyfill --recursive || exit 0",
     "test": "npm run test:jasmine",
-    "coverage:jasmine": "",
-    "coverage:mocha": "",
-    "coverage": "",
+    "rmdir": "if [ -d $dir ]; then rm -Rf $dir; fi;",
+    "coverage:jasmine": "dir=coverage-jasmine/ npm run rmdir; npm run local_definitions; istanbul cover --include-all-sources -x \"**tests/specs/mocha/**\" jasmine-node tests/specs/; mv coverage coverage-jasmine",
+    "coverage:mocha": "dir=coverage-mocha/ npm run rmdir; npm run local_definitions; istanbul cover _mocha -- \"tests/specs/mocha/*-mocha-test.js\" --growl --require babel-core/register --require babel-polyfill --recursive; mv coverage coverage-mocha || exit 0",
+    "coverage": "npm run coverage:jasmine",
     "hello_world": "echo 'Hello World!'"
   },
   "repository": {
