@@ -1,7 +1,7 @@
 require('./../../../src/sign-test')(__filename);
 
 let udf;
-const {nvl} from './../../../src/nvl';
+const nvl = require('./../../../src/nvl').nvl;
 
 describe('nvl', () => {
 

@@ -1,5 +1,6 @@
 require('./../../../src/sign-test')(__filename);
 
+const signTest = require('./../../../src/sign-test');
 function MockConsole () {
     let _string = '';
     this.captured = () => _string;
@@ -8,10 +9,10 @@ function MockConsole () {
 
 let mockConsole = new MockConsole();
 
-require('./../../../src/sign-test')(`${__dirname}/nvl-spec.js`, mockConsole);
+signTest(`${__dirname}/nvl-spec.js`, mockConsole);
 
 describe('console can be injected', () => {
     it('string contains a valid MD5', () => {
-        expect(mockConsole.captured().indexOf('bec25799eeb024ca7f05802db43b98b2') !== -1).toBe(true);
+        expect(mockConsole.captured().indexOf('75906eac1ab6966aa2f70bb9aeec05f0') !== -1).toBe(true);
     });
 });

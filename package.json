@@ -5,9 +5,14 @@
   "description": "npm_module_description",
   "main": "index.js",
   "scripts": {
-    "test:jasmine": "./node_modules/.bin/jasmine-node --growl tests/specs/jasmine/",
-    "test:mocha": "./node_modules/mocha/bin/mocha \"tests/specs/mocha/*-mocha-test.js\" --growl --require babel-core/register --require babel-polyfill --recursive || exit 0",
-    "test": "echo \"@TODO: test\""
+    "local_definitions": "echo '--- [local_definitions] setup...'; alias jasmine-node=\"./node_modules/.bin/jasmine-node\"; alias mocha=\"./node_modules/mocha/bin/mocha\"; echo \"--- setup complete ---\"; echo ''",
+    "test:jasmine": "npm run local_definitions; jasmine-node --growl tests/specs/jasmine/",
+    "test:mocha": "npm run local_definitions; mocha \"tests/specs/mocha/*-mocha-test.js\" --growl --require babel-core/register --require babel-polyfill --recursive || exit 0",
+    "test": "npm run test:jasmine",
+    "coverage:jasmine": "",
+    "coverage:mocha": "",
+    "coverage": "",
+    "hello_world": "echo 'Hello World!'"
   },
   "repository": {
     "type": "git",
@@ -25,6 +30,7 @@
   },
   "dependencies": {
     "chai-http": "^4.2.0",
+    "dotenv": "^6.1.0",
     "fs": "0.0.1-security",
     "jsesc": "^2.5.0",
     "md5-file": "^3.1.1",
@@ -46,7 +52,7 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.4.0",
-    "istanbul": "^1.0.0-alpha",
+    "istanbul": "^1.0.0-alpha.2",
     "jasmine-node": "1.14.5",
     "mocha": "^5.2.0",
     "rimraf": "^2.6.2"

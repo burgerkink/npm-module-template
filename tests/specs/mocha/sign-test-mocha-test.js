@@ -1,5 +1,6 @@
 require('./../../../src/sign-test')(__filename);
 
+const signTest = require('./../../../src/sign-test');
 const chai = require('chai');
 const nvl = require('./../../../src/nvl').nvl;
 let udf;
@@ -12,7 +13,7 @@ function MockConsole () {
 }
 
 let mockConsole = new MockConsole();
-require('./../../../src/sign-test')(`${__dirname}/nvl-mocha-test.js`, mockConsole);
+signTest(`${__dirname}/nvl-mocha-test.js`, mockConsole);
 
 describe('sign-test', () => {
 
