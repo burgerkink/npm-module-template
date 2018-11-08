@@ -1,3 +1,5 @@
+require('./../../../src/sign-test')(__filename);
+
 const chai = require('chai');
 const nvl = require('./../../../src/nvl').nvl;
 let udf;
