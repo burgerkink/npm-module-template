@@ -12,7 +12,7 @@ function MockConsole () {
 }
 
 let mockConsole = new MockConsole();
-require('./../../../src/sign-test')(`${__dirname}/nvl-test.js`, mockConsole);
+require('./../../../src/sign-test')(`${__dirname}/nvl-mocha-test.js`, mockConsole);
 
 describe('sign-test', () => {
 
