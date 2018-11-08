@@ -1,9 +1,9 @@
-var assert = require('chai').assert;
+const chai = require("chai");
+let assert = chai.assert;
 
-describe('Basic Mocha String Test', function () {
-    it('should return number of charachters in a string', function () {
-        assert.equal("Hello".length, 5);
+describe('Basic Mocha String Test', () => {
+    it('should return number of charachters in a string', () => {
+        assert('Hello'.length === 5, 'is 5');
     });
 });
-
 
