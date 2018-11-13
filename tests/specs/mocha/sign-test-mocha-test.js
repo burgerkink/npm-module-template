@@ -18,6 +18,6 @@ signTest(`${__dirname}/nvl-mocha-test.js`, mockConsole);
 
 describe('sign-test', () => {
   it('string contains a valid MD5', () => {
-    assert(mockConsole.captured().indexOf('526875ef48f7e9802bd113bf75b3e8db') !== -1, 'test file signed');
+    assert(mockConsole.captured().indexOf('25225362a237039efa108265bd71810b') !== -1, 'test file signed');
   });
 });
