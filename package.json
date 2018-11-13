@@ -13,6 +13,10 @@
     "coverage:jasmine": "dir=coverage-jasmine/ npm run rmdir; npm run local_definitions; istanbul cover --include-all-sources -x \"**tests/specs/mocha/**\" jasmine-node tests/specs/; mv coverage coverage-jasmine",
     "coverage:mocha": "dir=coverage-mocha/ npm run rmdir; npm run local_definitions; istanbul cover _mocha -- \"tests/specs/mocha/*-mocha-test.js\" --growl --require babel-core/register --require babel-polyfill --recursive; mv coverage coverage-mocha || exit 0",
     "coverage": "npm run coverage:jasmine",
+    "eslint:purge": "[ -f \"eslint-report.txt\" ] && rm \"eslint-report.txt\"; date=`date`; echo \"*** New report file generated: ${date}\" >> eslint-report.txt;",
+    "eslint:src": "echo \"*** Directory: src/\" >> eslint-report.txt; find src/ -name \\*.js -exec ./node_modules/.bin/eslint {} \\; >> eslint-report.txt",
+    "eslint:tests": "echo \"*** Directory: tests/\" >> eslint-report.txt; find tests/ -name \\*.js -exec ./node_modules/.bin/eslint {} \\; >> eslint-report.txt",
+    "eslint": "npm run eslint:purge; npm run eslint:src; npm run eslint:tests;",
     "hello_world": "echo 'Hello World!'"
   },
   "repository": {
@@ -48,7 +52,7 @@
     "bash-color": "0.0.4",
     "chai": "^4.2.0",
     "cross-env": "^5.1.3",
-    "eslint": "^4.16.0",
+    "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
