@@ -9,6 +9,7 @@ echo "+----------------------------------------+"
 echo ""
 toppwd=`cd ..; pwd`
 NODEVER=`node --version`
+date=`date`
 if [[ -z "${NODEVER// }" ]]
 then
   echo "node is not installed..."
@@ -21,19 +22,19 @@ fi;
 echo "--"
 echo "Your module name?"
 echo ""
-read name
-name=`./json-wrap.js "name" "${name}"`
+read in_name
+name=`./json-wrap.js "name" "${in_name}"`
 echo "--"
 echo "Your module version x.y.z?"
 echo ""
-read version
-version=`./json-wrap.js "version" "${version}"`
+read in_version
+version=`./json-wrap.js "version" "${in_version}"`
 echo "--"
 echo "Your module description "
 echo "(multi-line use CTRL+D to stop after last description line)?"
 echo ""
-description=$(</dev/stdin)
-description=`./json-wrap.js "description" "${description}"`
+in_description=$(</dev/stdin)
+description=`./json-wrap.js "description" "${in_description}"`
 echo ""
 echo "*************************************"
 echo "Following are to be added to the "
@@ -62,6 +63,11 @@ if [ $yesno = "y" ]; then
   cat "$toppwd/package.json" | grep "  \"version\": "
   cat "$toppwd/package.json" | grep "  \"description\": "
   echo ""
+  echo "Processing [README.md] file..."
+  sed -i "s/{npm_module}/$in_name/g" "$toppwd/README.md"
+  description_mline=`echo ${in_description} | tr '\n' "\\n"`
+  sed -i "s/{npm_module_description}/$description_mline/g" "$toppwd/README.md"
+  sed -i "s/{date}/$date/g" "$toppwd/README.md"
 else
   echo ""
   echo "The [package] file was NOT changed."
