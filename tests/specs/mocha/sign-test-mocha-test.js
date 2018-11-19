@@ -1,8 +1,7 @@
 require('./../../../src/sign-test')(__filename);
 
 const chai = require('chai');
-const signTest = require('./../../../src/sign-test');
-const nvl = require('./../../../src/nvl').nvl;
+const signTest = require('./../../../index').signTest;
 
 let udf;
 const assert = chai.assert;
@@ -18,6 +17,6 @@ signTest(`${__dirname}/nvl-mocha-test.js`, mockConsole);
 
 describe('sign-test', () => {
   it('string contains a valid MD5', () => {
-    assert(mockConsole.captured().indexOf('25225362a237039efa108265bd71810b') !== -1, 'test file signed');
+    assert(mockConsole.captured().indexOf('b9e0a39042d531504bce7586699708dd') !== -1, 'test file signed');
   });
 });
