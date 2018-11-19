@@ -49,5 +49,15 @@ echo ""
 echo "--"
 echo "Is this correct (Y|N)?"
 read yesno
-
+yesno=`echo "$yesno" | tr '[:upper:]' '[:lower:]'`
+if [ $yesno = "y" ]; then
+  echo ""
+  echo "Processing [package] file..."
+  echo "DONE!"
+  echo ""
+else
+  echo ""
+  echo "The [package] file was NOT changed."
+echo ""
+fi
 exit 0
