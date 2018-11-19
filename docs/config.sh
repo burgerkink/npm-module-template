@@ -56,11 +56,16 @@ if [ $yesno = "y" ]; then
   sed -i "/  \"name\": /c\\$name," "$toppwd/package.json"
   sed -i "/  \"version\": /c\\$version," "$toppwd/package.json"
   sed -i "/  \"description\": /c\\$description," "$toppwd/package.json"
-  echo "DONE!"
+  echo "DONE! (results below from grep)"
+  echo ""
+  cat "$toppwd/package.json" | grep "  \"name\": "
+  cat "$toppwd/package.json" | grep "  \"version\": "
+  cat "$toppwd/package.json" | grep "  \"description\": "
   echo ""
 else
   echo ""
   echo "The [package] file was NOT changed."
+  exit 1
 echo ""
 fi
 exit 0
