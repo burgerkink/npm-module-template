@@ -7,9 +7,9 @@
  * @returns {string} Line of JSON
  */
 function wrapInJSON(k, v) {
-  let key = (typeof k === 'undefined' || k.trim() === '') ? 'err_no_key_defined' : k,
-      val = (typeof v === 'undefined') ? '' : v,
-      arr = JSON.stringify({'replace_this': val}, null, 2).replace('  "replace_this":', '  "'+key+'":').split('\n');
+  let key = (typeof k === 'undefined' || k.trim() === '') ? 'err_no_key_defined' : k;
+  let val = (typeof v === 'undefined') ? '' : v;
+  let arr = JSON.stringify({'replace_this': val}, null, 2).replace('  "replace_this":', `  "${key}":`).split('\n');
   return arr[1];
 }
 
