@@ -53,6 +53,9 @@ yesno=`echo "$yesno" | tr '[:upper:]' '[:lower:]'`
 if [ $yesno = "y" ]; then
   echo ""
   echo "Processing [package] file..."
+  sed -i "/  \"name\": /c\\$name," "$toppwd/package.json"
+  sed -i "/  \"version\": /c\\$version," "$toppwd/package.json"
+  sed -i "/  \"description\": /c\\$description," "$toppwd/package.json"
   echo "DONE!"
   echo ""
 else
