@@ -17,6 +17,7 @@
     "eslint:src": "echo \"*** Directory: src/\" >> eslint-report.txt; find src/ -name \\*.js -exec ./node_modules/.bin/eslint {} \\; >> eslint-report.txt",
     "eslint:tests": "echo \"*** Directory: tests/\" >> eslint-report.txt; find tests/ -name \\*.js -exec ./node_modules/.bin/eslint {} \\; >> eslint-report.txt",
     "eslint": "npm run eslint:purge; npm run eslint:src; npm run eslint:tests;",
+    "purge:docs": "echo \"\"; echo \"Please remove: docs/ manually\"; echo \"\"; ",
     "hello_world": "echo 'Hello World!'"
   },
   "repository": {
